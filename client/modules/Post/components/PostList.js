@@ -21,10 +21,11 @@ function PostList(props) {
 
 PostList.propTypes = {
   posts: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
+    make: PropTypes.string.isRequired,
+    model: PropTypes.string.isRequired,
+    year: PropTypes.string.isRequired,
+    regNumber: PropTypes.string.isRequired,
+    comment: PropTypes.string.isRequired,
     cuid: PropTypes.string.isRequired,
   })).isRequired,
   handleDeletePost: PropTypes.func.isRequired,

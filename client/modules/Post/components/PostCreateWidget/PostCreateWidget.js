@@ -6,12 +6,14 @@ import styles from './PostCreateWidget.css';
 
 export class PostCreateWidget extends Component {
   addPost = () => {
-    const nameRef = this.refs.name;
-    const titleRef = this.refs.title;
-    const contentRef = this.refs.content;
-    if (nameRef.value && titleRef.value && contentRef.value) {
-      this.props.addPost(nameRef.value, titleRef.value, contentRef.value);
-      nameRef.value = titleRef.value = contentRef.value = '';
+    const makeRef = this.refs.make;
+    const modelRef = this.refs.model;
+    const yearRef = this.refs.year;
+    const regNumberRef = this.refs.regNumber;
+    const comment = this.refs.comment;
+    if (makeRef.value && modelRef.value && yearRef.value && regNumberRef && comment) {
+      this.props.addPost(makeRef.value, modelRef.value, yearRef.value, regNumberRef.value, comment.value);
+      makeRef.value = modelRef.value = yearRef.value = regNumberRef.value = comment.value = '';
     }
   };
 
@@ -20,10 +22,12 @@ export class PostCreateWidget extends Component {
     return (
       <div className={cls}>
         <div className={styles['form-content']}>
-          <h2 className={styles['form-title']}><FormattedMessage id="createNewPost" /></h2>
-          <input placeholder={this.props.intl.messages.authorName} className={styles['form-field']} ref="name" />
-          <input placeholder={this.props.intl.messages.postTitle} className={styles['form-field']} ref="title" />
-          <textarea placeholder={this.props.intl.messages.postContent} className={styles['form-field']} ref="content" />
+          <h2 className={styles['form-title']}><FormattedMessage id="createNewVehicle" /></h2>
+          <input placeholder={this.props.intl.messages.make} className={styles['form-field']} ref="make" />
+          <input placeholder={this.props.intl.messages.model} className={styles['form-field']} ref="model" />
+          <input placeholder={this.props.intl.messages.year} className={styles['form-field']} ref="year" />
+          <input placeholder={this.props.intl.messages.regNumber} className={styles['form-field']} ref="regNumber" />
+          <textarea placeholder={this.props.intl.messages.comment_} className={styles['form-field']} ref="comment" />
           <a className={styles['post-submit-button']} href="#" onClick={this.addPost}><FormattedMessage id="submit" /></a>
         </div>
       </div>

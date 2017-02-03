@@ -13,15 +13,20 @@ export function addPost(post) {
   };
 }
 
-export function addPostRequest(post) {
+export function addPostRequest(vehicle) {
   return (dispatch) => {
-    return callApi('posts', 'post', {
+    return callApi('vehicles', 'post', {
       post: {
-        name: post.name,
-        title: post.title,
-        content: post.content,
+        make: vehicle.make,
+        model: vehicle.model,
+        year: vehicle.year,
+        regNumber: vehicle.regNumber,
+        comment:vehicle.comment
       },
-    }).then(res => dispatch(addPost(res.post)));
+    }).then(res => {
+      console.log(res);
+      dispatch(addPost(res.vehicle))
+    });
   };
 }
 
@@ -34,8 +39,9 @@ export function addPosts(posts) {
 
 export function fetchPosts() {
   return (dispatch) => {
-    return callApi('posts').then(res => {
-      dispatch(addPosts(res.posts));
+    return callApi('vehicles').then(res => {
+      console.log(res);
+      dispatch(addPosts(res.vehicles));
     });
   };
 }

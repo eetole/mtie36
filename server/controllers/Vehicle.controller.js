@@ -12,11 +12,11 @@ export function getVehicles(req, res) {
 }
 
 export function addVehicle(req, res) {
-  if (!req.body.make || !req.body.model || !req.body.year) {
+  if (!req.body.post.make || !req.body.post.model || !req.body.post.year) {
     res.status(403).end();
   }
 
-  const newVehicle = new Vehicle(req.body);
+  const newVehicle = new Vehicle(req.body.post);
 
   // Let's sanitize inputs
   newVehicle.make = sanitizeHtml(newVehicle.make);
@@ -28,11 +28,11 @@ export function addVehicle(req, res) {
   newVehicle.cuid = cuid();
 
   try {
-    newVehicle.save((err, savedd) => {
+    newVehicle.save((err, vehicle) => {
       if (err) {
         res.status(500).send(err);
       }
-      res.json({savedd});
+      res.json({vehicle});
     });
   } catch (error){
     console.log(error);

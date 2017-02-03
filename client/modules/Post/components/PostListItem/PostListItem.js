@@ -13,8 +13,10 @@ function PostListItem(props) {
           {props.post.title}
         </Link>
       </h3>
-      <p className={styles['author-name']}><FormattedMessage id="by" /> {props.post.name}</p>
-      <p className={styles['post-desc']}>{props.post.content}</p>
+      <p className={styles['author-name']}>{props.post.make} {props.post.model}</p>
+      <p className={styles['post-desc']}>{props.post.year}</p>
+      <p className={styles['post-desc']}>{props.post.regNumber}</p>
+      <p className={styles['post-desc']}>{props.post.comment}</p>
       <p className={styles['post-action']}><a href="#" onClick={props.onDelete}><FormattedMessage id="deletePost" /></a></p>
       <hr className={styles.divider} />
     </div>
@@ -23,11 +25,11 @@ function PostListItem(props) {
 
 PostListItem.propTypes = {
   post: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
-    cuid: PropTypes.string.isRequired,
+    make: PropTypes.string.isRequired,
+    model: PropTypes.string.isRequired,
+    year: PropTypes.string.isRequired,
+    regNumber: PropTypes.string.isRequired,
+    comment: PropTypes.string.isRequired,
   }).isRequired,
   onDelete: PropTypes.func.isRequired,
 };

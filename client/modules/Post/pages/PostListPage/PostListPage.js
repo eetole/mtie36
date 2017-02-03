@@ -24,9 +24,9 @@ class PostListPage extends Component {
     }
   };
 
-  handleAddPost = (name, title, content) => {
+  handleAddPost = (make, model, year, regNumber, comment) => {
     this.props.dispatch(toggleAddPost());
-    this.props.dispatch(addPostRequest({ name, title, content }));
+    this.props.dispatch(addPostRequest({ make, model, year, regNumber, comment }));
   };
 
   render() {

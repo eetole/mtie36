@@ -1,9 +1,9 @@
 export default {
   locale: 'fr',
   messages: {
-    siteTitle: 'MERN blog de démarrage',
-    addPost: 'Ajouter Poster',
-    switchLanguage: 'Changer de langue',
+    siteTitle: 'Ajoneuvot',
+    addPost: 'Lisää ajoneuvo',
+    switchLanguage: 'Vaihda kieli',
     twitterMessage: 'Nous sommes sur Twitter',
     by: 'Par',
     deletePost: 'Supprimer le message',
