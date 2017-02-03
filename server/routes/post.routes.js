@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import * as PostController from '../controllers/post.controller';
+import * as VehicleController from '../controllers/vehicle.controller';
 const router = new Router();
 
 // Get all Posts
@@ -13,5 +14,10 @@ router.route('/posts').post(PostController.addPost);
 
 // Delete a post by cuid
 router.route('/posts/:cuid').delete(PostController.deletePost);
+
+router.route('/vehicles').get(VehicleController.getVehicles);
+router.route('/vehicles/:cuid').get(VehicleController.getVehicle);
+router.route('/vehicles').post(VehicleController.addVehicle);
+router.route('/vehicles/:cuid').delete(VehicleController.deleteVehicle);
 
 export default router;
